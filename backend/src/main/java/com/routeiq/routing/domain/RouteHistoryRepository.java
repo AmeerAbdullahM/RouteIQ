@@ -1,0 +1,10 @@
+package com.routeiq.routing.domain;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import java.util.UUID;
+
+public interface RouteHistoryRepository extends JpaRepository<RouteHistory, UUID> {
+    Page<RouteHistory> findByUserIdOrderByCreatedAtDesc(UUID userId, Pageable pageable);
+}
